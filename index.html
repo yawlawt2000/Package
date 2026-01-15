@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Package Section</title>
+<title>Packag </title>
 
 <style>
     body {
@@ -13,6 +13,7 @@
         background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #000);
         background-size: 400% 400%;
         animation: bgMove 12s ease infinite;
+        padding-top: 90px; /* ✅ fixed header space */
     }
 
     @keyframes bgMove {
@@ -21,54 +22,69 @@
         100% { background-position: 0% 50%; }
     }
 
-    .container {
-        max-width: 420px;
-        margin: 20px auto;
-        padding: 10px;
-    }
-
-    /* ===== Logo Section ===== */
-    .logo-box {
-        text-align: center;
-        margin-bottom: 18px;
-    }
-
-    .logo-box img {
-        max-width: 70px;
+    /* ===== Fixed Header ===== */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: auto;
+        z-index: 1000;
+        background: rgba(10,10,30,0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .header-inner {
+        max-width: 420px;
+        margin: auto;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .header-logo img {
+        width: 50px;
         filter: drop-shadow(0 0 15px rgba(0,198,255,0.6));
         animation: logoFloat 3s ease-in-out infinite,
                    logoGlow 2.5s ease-in-out infinite;
     }
 
-    /* Floating animation */
+    .header-title {
+        font-size: 20px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
     @keyframes logoFloat {
-        0%   { transform: translateY(0); }
-        50%  { transform: translateY(-10px); }
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
         100% { transform: translateY(0); }
     }
 
-    /* Glow pulse animation */
     @keyframes logoGlow {
-        0% {
-            filter: drop-shadow(0 0 10px rgba(0,198,255,0.4));
-        }
-        50% {
-            filter: drop-shadow(0 0 25px rgba(0,198,255,0.9));
-        }
-        100% {
-            filter: drop-shadow(0 0 10px rgba(0,198,255,0.4));
-        }
+        0% { filter: drop-shadow(0 0 10px rgba(0,198,255,0.4)); }
+        50% { filter: drop-shadow(0 0 25px rgba(0,198,255,0.9)); }
+        100% { filter: drop-shadow(0 0 10px rgba(0,198,255,0.4)); }
     }
 
-    .section-title {
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
+    .container {
+        max-width: 420px;
+        margin: auto;
+        padding: 10px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (min-width: 768px) {
+        .header-inner {
+            max-width: 700px;
+        }
+        .container {
+            max-width: 700px;
+        }
+        .header-title {
+            font-size: 22px;
+        }
     }
 
     .apk-download {
@@ -80,11 +96,6 @@
         box-shadow: 0 0 25px rgba(0,198,255,0.6);
     }
 
-    .apk-download h3 {
-        margin: 0 0 10px;
-        font-size: 18px;
-    }
-
     .apk-btn {
         display: inline-block;
         padding: 14px 26px;
@@ -93,12 +104,6 @@
         color: #fff;
         font-weight: bold;
         text-decoration: none;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .apk-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(255,87,34,0.8);
     }
 
     .package-card {
@@ -109,11 +114,11 @@
         padding: 16px;
         margin-bottom: 18px;
         box-shadow: 0 0 20px rgba(106,124,255,0.25);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: 0.3s;
     }
 
     .package-card:hover {
-        transform: translateY(-6px) scale(1.02);
+        transform: translateY(-6px);
         box-shadow: 0 0 35px rgba(106,124,255,0.6);
     }
 
@@ -128,58 +133,44 @@
         font-weight: bold;
     }
 
-    .package-title {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 6px;
-    }
-
-    .package-desc {
-        font-size: 13px;
-        opacity: 0.85;
-        margin-bottom: 12px;
-    }
-
     .package-footer {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         gap: 10px;
     }
 
     .price {
         font-size: 18px;
-        font-weight: bold;
         color: #5dff9f;
-        white-space: nowrap;
+        font-weight: bold;
     }
 
     .buy-btn {
-        flex: 1;
-        text-align: center;
-        padding: 12px;
+        padding: 12px 20px;
         border-radius: 30px;
         background: linear-gradient(90deg, #667eea, #764ba2);
         color: #fff;
-        font-size: 15px;
-        font-weight: bold;
         text-decoration: none;
+        font-weight: bold;
     }
 </style>
 </head>
 
 <body>
 
+<!-- ===== Fixed Header ===== -->
+<div class="header">
+    <div class="header-inner">
+        <div class="header-logo">
+            <img src="https://raw.githubusercontent.com/yawlawt/YTPlusVip/main/images/icon.png">
+        </div>
+        <div class="header-title">📦 Package Section</div>
+    </div>
+</div>
+
 <div class="container">
 
-    <!-- Logo Section -->
-    <div class="logo-box">
-        <img src="https://raw.githubusercontent.com/yawlawt/YTPlusVip/main/images/icon.png" alt="Logo">
-    </div>
-
-    <div class="section-title">📦 Package Section</div>
-
-    <!-- APK Download Section -->
     <div class="apk-download">
         <h3>YT Plus APK</h3>
         <a class="apk-btn" href="https://github.com/yawlawt2000/Package-Section-/releases/download/V1.0.1/YT_PLUS_VPNcom.yt.plusv2.0.apk" download>
