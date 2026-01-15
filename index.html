@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Packag </title>
+<title>Packag</title>
+
+<!-- ✅ Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
     body {
@@ -13,7 +16,7 @@
         background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #000);
         background-size: 400% 400%;
         animation: bgMove 12s ease infinite;
-        padding-top: 90px; /* ✅ fixed header space */
+        padding-top: 90px;
     }
 
     @keyframes bgMove {
@@ -22,7 +25,6 @@
         100% { background-position: 0% 50%; }
     }
 
-    /* ===== Fixed Header ===== */
     .header {
         position: fixed;
         top: 0;
@@ -38,6 +40,13 @@
         max-width: 420px;
         margin: auto;
         padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .header-left {
         display: flex;
         align-items: center;
         gap: 12px;
@@ -68,13 +77,30 @@
         100% { filter: drop-shadow(0 0 10px rgba(0,198,255,0.4)); }
     }
 
+    /* ✅ Social Icons */
+    .social-icons a {
+        color: #fff;
+        font-size: 22px;
+        margin-left: 10px;
+        transition: 0.3s;
+    }
+
+    .social-icons a.facebook:hover {
+        color: #1877f2;
+        text-shadow: 0 0 10px #1877f2;
+    }
+
+    .social-icons a.telegram:hover {
+        color: #29b6f6;
+        text-shadow: 0 0 10px #29b6f6;
+    }
+
     .container {
         max-width: 420px;
         margin: auto;
         padding: 10px;
     }
 
-    /* ===== Responsive ===== */
     @media (min-width: 768px) {
         .header-inner {
             max-width: 700px;
@@ -162,10 +188,22 @@
 <!-- ===== Fixed Header ===== -->
 <div class="header">
     <div class="header-inner">
-        <div class="header-logo">
-            <img src="https://raw.githubusercontent.com/yawlawt/YTPlusVip/main/images/icon.png">
+        <div class="header-left">
+            <div class="header-logo">
+                <img src="https://raw.githubusercontent.com/yawlawt/YTPlusVip/main/images/icon.png">
+            </div>
+            <div class="header-title"> Yaw Lawt</div>
         </div>
-        <div class="header-title">📦 Package Section</div>
+
+        <!-- ✅ Social Icons -->
+        <div class="social-icons">
+            <a class="facebook" href="https://www.facebook.com/yawlawt2431" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a class="telegram" href="https://t.me/aungaung78" target="_blank">
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div>
     </div>
 </div>
 
